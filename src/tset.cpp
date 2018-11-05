@@ -60,17 +60,17 @@ TSet& TSet::operator=(const TSet &s) // присваивание
 
 int TSet::operator==(const TSet &s) const // сравнение
 {
-	return this->BitField == s.BitField;
+	return BitField == s.BitField;
 }
 
 int TSet::operator!=(const TSet &s) const // сравнение
 {
-	return this->BitField != s.BitField;
+	return BitField != s.BitField;
 }
 
 TSet TSet::operator+(const TSet &s) // объединение
 {
-	TSet result(this->BitField | s.BitField);
+	TSet result(BitField | s.BitField);
 	return result;
 }
 
@@ -90,7 +90,7 @@ TSet TSet::operator-(const int Elem) // разность с элементом
 
 TSet TSet::operator*(const TSet &s) // пересечение
 {
-	TSet result(this->BitField & s.BitField);
+	TSet result(BitField & s.BitField);
 	return result;
 }
 
@@ -105,25 +105,28 @@ TSet TSet::operator~(void) // дополнение
 
 istream &operator>>(istream &istr, TSet &s) // ввод
 {
-	s = TSet(s.MaxPower);
+	/*s = TSet(s.MaxPower);
 	int a;
 	istr >> a;
-	while (a != -1) {
+	while (a != -1) 
+	{
 		s.InsElem(a);
 		istr >> a;
-	}
+	} */
 	return istr;
 }
 
 ostream& operator<<(ostream &ostr, const TSet &s) // вывод
 {
-	bool f = true;
-	for (int i = 0; i<s.MaxPower; i++) {
-		if (s.IsMember(i)) {
+	/*bool f = true;
+	for (int i = 0; i<s.MaxPower; i++) 
+	{
+		if (s.IsMember(i)) 
+		{
 			ostr << i << " ";
 			f = false;
 		}
 	}
-	if (f) ostr << "Пустое множество";
+	if (f) ostr << "Пустое множество"; */
 	return ostr;
 }
