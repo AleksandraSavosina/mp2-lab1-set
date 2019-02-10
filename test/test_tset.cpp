@@ -51,7 +51,7 @@ TEST(TSet, can_delete_existing_element)
   EXPECT_EQ(set.IsMember(k), 0);
 }
 
-TEST(TSet, compare_two_sets_of_non_equal_sizes)
+TEST(TSet, compare_two_sets_with_different_length)
 {
   const int size1 = 4, size2 = 6;
   TSet set1(size1), set2(size2);
@@ -82,22 +82,6 @@ TEST(TSet, compare_two_non_equal_sets)
   // set2 = {1, 2}
   set2.InsElem(1);
   set2.InsElem(2);
-
-  EXPECT_EQ(1, set1 != set2);
-}
-
-
-TEST(TSet, compare_two_sets_with_different_length)
-{
-  const int size = 2;
-  TSet set1(size), set2(size + 1);
-  // set1 = {1, 3}
-  set1.InsElem(1);
-  set1.InsElem(3);
-  // set2 = {1, 2, 3}
-  set2.InsElem(1);
-  set2.InsElem(2);
-  set2.InsElem(3);
 
   EXPECT_EQ(1, set1 != set2);
 }
