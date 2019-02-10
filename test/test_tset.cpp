@@ -86,6 +86,22 @@ TEST(TSet, compare_two_non_equal_sets)
   EXPECT_EQ(1, set1 != set2);
 }
 
+
+TEST(TSet, compare_two_sets_with_different_length)
+{
+  const int size = 2;
+  TSet set1(size), set2(size + 1);
+  // set1 = {1, 3}
+  set1.InsElem(1);
+  set1.InsElem(3);
+  // set2 = {1, 2, 3}
+  set2.InsElem(1);
+  set2.InsElem(2);
+  set2.InsElem(3);
+
+  EXPECT_EQ(1, set1 != set2);
+}
+
 TEST(TSet, can_assign_set_of_equal_size)
 {
   const int size = 4;
